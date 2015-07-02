@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'yelp', require: 'yelp'
 
+gem 'httparty', '~> 0.13.5'
+
 gem "figaro"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
