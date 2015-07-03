@@ -10,11 +10,11 @@ attractions["results"].each do |attraction|
 
     attraction = Attraction.create([
       attraction_name: attraction["name"],
-      # latitude: attraction["geometry"]["location"]["lat"]
-      # longitude: attraction["geometry"]["location"]["long"]
-      address: attraction["formatted_address"],
+      latitude: attraction["geometry"]["location"]["lat"],
+      longitude: attraction["geometry"]["location"]["lng"],
+      address: attraction["formatted_address"]
       # attraction["types"].each do |types|
-      type: attraction["types"][0]
+      # type: attraction["types"][0]
       # end
       ])
       # end
