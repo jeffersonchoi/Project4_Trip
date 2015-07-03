@@ -14,17 +14,18 @@
   </div>
 
   <div>
+    <%= f.label :gender %>
+
     <%= f.radio_button :gender, 'male' %>
-    <%= f.label :gender_male%>
+    <%= f.label :male%>
 
     <%= f.radio_button :gender, 'female' %>
-    <%= f.label :gender_female %>
+    <%= f.label :female %>
   </div>
 
   <div>
-    <%= f.date_select :date_of_birth %>
     <%= f.label :date_of_bith %>
-
+    <%= f.date_select(:date_of_birth, :start_year => 1940) %>
   </div>
 
   <div>
