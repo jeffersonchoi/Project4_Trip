@@ -1,17 +1,27 @@
-# attractions = Yelp.client.search('Los Angeles', {term: 'attractions'})
-#
-# attractions.each do |attraction|
-#
-#   if attraction["business"]["name"]
-#
-#     attraction = Attraction.create([
-#       attraction_name: attraction["business"]["name"]
-#
-#       ])
-#
-#   end
-#
-# end
+attractions = HTTParty.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+in+Los+Angeles&key=#{ENV['google_api_key']}")
+
+
+
+attractions["results"].each do |attraction|
+
+  if attraction["name"]
+    if attraction["geometry"]
+      # if attraction["geometry"]["location"]["long"]
+
+    attraction = Attraction.create([
+      attraction_name: attraction["name"],
+      # latitude: attraction["geometry"]["location"]["lat"]
+      # longitude: attraction["geometry"]["location"]["long"]
+      address: attraction["formatted_address"],
+      # attraction["types"].each do |types|
+      type: attraction["types"][0]
+      # end
+      ])
+      # end
+    end
+  end
+
+end
 
 
 
@@ -21,11 +31,11 @@ User.create([
   {first_name: "User 3"}
   ])
 
-Attraction.create([
-  {attraction_name: "Attraction 1"},
-  {attraction_name: "Attraction 2"},
-  {attraction_name: "Attraction 3"}
-  ])
+# Attraction.create([
+#   {attraction_name: "Attraction 1"},
+#   {attraction_name: "Attraction 2"},
+#   {attraction_name: "Attraction 3"}
+#   ])
 
 
 
